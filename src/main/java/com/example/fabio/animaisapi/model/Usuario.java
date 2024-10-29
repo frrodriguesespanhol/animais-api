@@ -1,5 +1,7 @@
 package com.example.fabio.animaisapi.model;
 
+import com.example.fabio.animaisapi.model.exceptions.ValidationException;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,7 +37,13 @@ public class Usuario {
 
 	public Usuario(Long id, String nome, String email,
 					String senha, String tipo) {
-		super();
+
+		if (nome == null) throw new ValidationException("Nome é obrigatório");
+		if (email == null) throw new ValidationException("E-mail é obrigatório");
+		if (senha == null) throw new ValidationException("Senha é obrigatória");
+		if (tipo == null) throw new ValidationException("Tipo é obrigatório");
+
+		//super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;

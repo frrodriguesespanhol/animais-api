@@ -68,8 +68,8 @@ public class AnimaisController {
 		System.out.println("animais tomodel: " +  animais);
 		animais.setId(id);
 		animais.setData(animalExistente.get().getData());
-		animais.setIdGrupoAnimal(animalExistente.get().getIdGrupoAnimal());
-		animais.setIdClassificacaoAnimal(animalExistente.get().getIdClassificacaoAnimal());
+//		animais.setIdGrupoAnimal(animalExistente.get().getIdGrupoAnimal());
+//		animais.setIdClassificacaoAnimal(animalExistente.get().getIdClassificacaoAnimal());
 		animais.setIdEspecieAnimal(animalExistente.get().getIdEspecieAnimal());
 		animais.setEspecie(animalExistente.get().getEspecie());
 		animais.setLocalizacao(animalExistente.get().getLocalizacao());
@@ -114,13 +114,16 @@ public class AnimaisController {
 
 	@GetMapping
 	public Page<AnimaisFormRequest> getLista(
-		@RequestParam(value="grupo", required= false, defaultValue = "") String grupo,
-		@RequestParam(value="classificacao", required= false, defaultValue = "") String classificacao,
+//		@RequestParam(value="grupo", required= false, defaultValue = "") String grupo,
+//		@RequestParam(value="classificacao", required= false, defaultValue = "") String classificacao,
+		@RequestParam(value="idEspecieAnimal", required= false, defaultValue = "") String idEspecieAnimal,
 		@RequestParam(value="especie", required= false, defaultValue = "") String especie,
+		@RequestParam(value="cadastradopor", required= false, defaultValue = "") String cadastradopor,
 		Pageable pageable
 	){
+		System.out.println("espécie id: " +  idEspecieAnimal + "espécie: " + especie + "cadastradopor: " + cadastradopor );
 		return repository
-					.buscarPorGrupoClassificacaoEspecie( grupo , classificacao , especie , pageable)
+					.buscarPorGrupoClassificacaoEspecie( idEspecieAnimal, especie, cadastradopor, pageable)
 					.map( AnimaisFormRequest::fromModel );
 	}
 }

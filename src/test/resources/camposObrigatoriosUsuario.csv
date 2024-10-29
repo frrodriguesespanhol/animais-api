@@ -1,0 +1,5 @@
+Id, Nome, Email, Senha, Tipo, Mensagem
+1, NULL, user@mail.com, 1234, adm, Nome é obrigatório
+1, Nome usuário, NULL, 1234, adm, E-mail é obrigatório
+1, Nome usuário, user@mail.com, NULL, adm, Senha é obrigatória
+1, Nome usuário, user@mail.com, 1234, NULL, Tipo é obrigatório

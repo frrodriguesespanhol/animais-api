@@ -18,17 +18,30 @@ import java.util.Map;
 
 public interface AnimaisRepository extends JpaRepository<Animais, Long> {
 	
+//	@Query(" select a from Animais a Where"
+//			+ " (:idGrupoAnimal='' or cast(a.idGrupoAnimal.id as string) = :idGrupoAnimal) and "
+//			+ " (:idClassificacaoAnimal='' or (cast(a.idClassificacaoAnimal.id as string) = :idClassificacaoAnimal) and "
+//			+ " (:idEspecieAnimal='' or (cast(a.idEspecieAnimal.id as string) = :idEspecieAnimal))) order by a.data desc")
+//
+//	Page<Animais> buscarPorGrupoClassificacaoEspecie(
+//			@Param("idGrupoAnimal") String idGrupoAnimal,
+//			@Param("idClassificacaoAnimal") String idClassificacaoAnimal,
+//			@Param("idEspecieAnimal") String idEspecieAnimal,
+//			Pageable pageable);
+
+
 	@Query(" select a from Animais a Where"
-			+ " (:idGrupoAnimal='' or cast(a.idGrupoAnimal.id as string) = :idGrupoAnimal) and "
-			+ " (:idClassificacaoAnimal='' or (cast(a.idClassificacaoAnimal.id as string) = :idClassificacaoAnimal) and "
-			+ " (:idEspecieAnimal='' or (cast(a.idEspecieAnimal.id as string) = :idEspecieAnimal))) order by a.data desc")
+   		    + " (:especie='' or upper(a.especie) like concat('%',upper(:especie),'%')) and "
+			+ " (:cadastradopor='' or upper(a.cadastradopor) like concat('%',upper(:cadastradopor),'%')) and "
+			+ " (:idEspecieAnimal='' or (cast(a.idEspecieAnimal.id as string) = :idEspecieAnimal)) order by a.data desc")
 
 	Page<Animais> buscarPorGrupoClassificacaoEspecie(
-			@Param("idGrupoAnimal") String idGrupoAnimal,
-			@Param("idClassificacaoAnimal") String idClassificacaoAnimal,
+//			@Param("idGrupoAnimal") String idGrupoAnimal,
+//			@Param("idClassificacaoAnimal") String idClassificacaoAnimal,
 			@Param("idEspecieAnimal") String idEspecieAnimal,
+			@Param("especie") String especie,
+			@Param("cadastradopor") String cadastradopor,
 			Pageable pageable);
-
 
 }
 

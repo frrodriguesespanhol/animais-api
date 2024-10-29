@@ -19,8 +19,8 @@ public class AnimaisFormRequest {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date data;
-	private Grupo idGrupoAnimal;
-	private Classificacao idClassificacaoAnimal;
+//	private Grupo idGrupoAnimal;
+//	private Classificacao idClassificacaoAnimal;
 	private Especie idEspecieAnimal;
 	private String especie;
 	private String ani_localizacao;
@@ -40,8 +40,8 @@ public class AnimaisFormRequest {
 	/**
 	 * @param id
 	 * @param data
-	 * @param idGrupoAnimal
-	 * @param idClassificacaoAnimal
+//	 * @param idGrupoAnimal
+//	 * @param idClassificacaoAnimal
 	 * @param idEspecieAnimal
 	 * @param especie
 	 * @param localizacao
@@ -52,14 +52,13 @@ public class AnimaisFormRequest {
 	 * @param foto1
 	 * @param foto2
 	 */
-	public AnimaisFormRequest(Long id, Date data, Grupo idGrupoAnimal, Classificacao idClassificacaoAnimal,
-							  Especie idEspecieAnimal, String especie, String localizacao, String cadastradopor,
+	public AnimaisFormRequest(Long id, Date data, Especie idEspecieAnimal, String especie, String localizacao, String cadastradopor,
 							  String email, String estado, String comentario, String foto1, String foto2) {
 		super();
 		this.ani_id = id;
 		this.data = data;
-		this.idGrupoAnimal = idGrupoAnimal;
-		this.idClassificacaoAnimal= idClassificacaoAnimal;
+//		this.idGrupoAnimal = idGrupoAnimal;
+//		this.idClassificacaoAnimal= idClassificacaoAnimal;
 		this.idEspecieAnimal = idEspecieAnimal;
 		this.especie = especie;
 		this.ani_localizacao = localizacao;
@@ -80,16 +79,16 @@ public class AnimaisFormRequest {
 	}
 	public Date getData() {	return data; }
 	public void setData(Date data) {this.data = data;}
-	public Grupo getIdGrupoAnimal() {
-		return idGrupoAnimal;
-	}
-	public void setIdGrupoAnimal(Grupo idGrupoAnimal) {
-		this.idGrupoAnimal = idGrupoAnimal;
-	}
-	public Classificacao getIdClassificacaoAnimal() {
-		return idClassificacaoAnimal;
-	}
-	public void setIdClassificacaoAnimal(Classificacao idClassificacaoAnimal) {	this.idClassificacaoAnimal = idClassificacaoAnimal;	}
+//	public Grupo getIdGrupoAnimal() {
+//		return idGrupoAnimal;
+//	}
+//	public void setIdGrupoAnimal(Grupo idGrupoAnimal) {
+//		this.idGrupoAnimal = idGrupoAnimal;
+//	}
+//	public Classificacao getIdClassificacaoAnimal() {
+//		return idClassificacaoAnimal;
+//	}
+//	public void setIdClassificacaoAnimal(Classificacao idClassificacaoAnimal) {	this.idClassificacaoAnimal = idClassificacaoAnimal;	}
 	public Especie getIdEspecieAnimal() {
 		return idEspecieAnimal;
 	}
@@ -146,14 +145,13 @@ public class AnimaisFormRequest {
 	}
 
 	public Animais toModel() {
-		return new Animais(ani_id, data, idGrupoAnimal, idClassificacaoAnimal, idEspecieAnimal, especie, ani_localizacao,
+		return new Animais(ani_id, data, idEspecieAnimal, especie, ani_localizacao,
 				ani_cadastrado_por, email, ani_estado, ani_comentario, ani_foto1, ani_foto2);
 	}
 
 	public static AnimaisFormRequest fromModel(Animais animais) {
 		//System.out.println(animais.getData().toString().substring(8,10) + '/' + animais.getData().toString().substring(5,7) + "/" + animais.getData().toString().substring(0,4) );
-		return new AnimaisFormRequest(animais.getId(), animais.getData(), animais.getIdGrupoAnimal(),
-				animais.getIdClassificacaoAnimal(),	animais.getIdEspecieAnimal(), animais.getEspecie(),
+		return new AnimaisFormRequest(animais.getId(), animais.getData(), animais.getIdEspecieAnimal(), animais.getEspecie(),
 				animais.getLocalizacao(), animais.getCadastradopor(), animais.getEmail(), animais.getEstado(),
 				animais.getComentario(), animais.getFoto1(), animais.getFoto2());
 	}

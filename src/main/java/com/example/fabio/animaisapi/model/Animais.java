@@ -18,13 +18,13 @@ public class Animais {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date data;
-	@ManyToOne
-	@JoinColumn(name = "gru_id")
-	private Grupo idGrupoAnimal;
-
-	@ManyToOne
-	@JoinColumn(name = "cla_id")
-	private Classificacao idClassificacaoAnimal;
+//	@ManyToOne
+//	@JoinColumn(name = "gru_id")
+//	private Grupo idGrupoAnimal;
+//
+//	@ManyToOne
+//	@JoinColumn(name = "cla_id")
+//	private Classificacao idClassificacaoAnimal;
 
 	@ManyToOne
 	@JoinColumn(name = "esp_id")
@@ -58,14 +58,14 @@ public class Animais {
 		super();
 	}
 
-	public Animais(Long id, Date data, Grupo idGrupoAnimal, Classificacao idClassificacaoAnimal, Especie idEspecieAnimal,
+	public Animais(Long id, Date data, Especie idEspecieAnimal,
 				   String especie, String localizacao, String cadastradopor, String email, String estado, String comentario, String foto1,
 				   String foto2) {
 		super();
 		this.id = id;
 		this.data = data;
-		this.idGrupoAnimal = idGrupoAnimal;
-		this.idClassificacaoAnimal = idClassificacaoAnimal;
+//		this.idGrupoAnimal = idGrupoAnimal;
+//		this.idClassificacaoAnimal = idClassificacaoAnimal;
 		this.idEspecieAnimal = idEspecieAnimal;
 		this.especie = especie;
 		this.localizacao = localizacao;
@@ -79,8 +79,8 @@ public class Animais {
 
 	/**
 	 * @param data
-	 * @param idGrupoAnimal
-	 * @param idClassificacaoAnimal
+//	 * @param idGrupoAnimal
+//	 * @param idClassificacaoAnimal
 	 * @param idEspecieAnimal
 	 * @param especie
 	 * @param localizacao
@@ -91,13 +91,13 @@ public class Animais {
 	 * @param foto1
 	 * @param foto2
 	 */
-	public Animais(Date data, Grupo idGrupoAnimal, Classificacao idClassificacaoAnimal, Especie idEspecieAnimal,
+	public Animais(Date data, Especie idEspecieAnimal,
 				   String especie, String localizacao, String cadastradopor, String email, String estado, String comentario,
 				   String foto1, String foto2) {
 		super();
 		this.data = data;
-		this.idGrupoAnimal = idGrupoAnimal;
-		this.idClassificacaoAnimal = idClassificacaoAnimal;
+//		this.idGrupoAnimal = idGrupoAnimal;
+//		this.idClassificacaoAnimal = idClassificacaoAnimal;
 		this.idEspecieAnimal = idEspecieAnimal;
 		this.especie = especie;
 		this.localizacao = localizacao;
@@ -126,21 +126,21 @@ public class Animais {
 		this.data = data;
 	}
 
-	public Grupo getIdGrupoAnimal() {
-		return idGrupoAnimal;
-	}
-
-	public void setIdGrupoAnimal(Grupo idGrupoAnimal) {
-		this.idGrupoAnimal = idGrupoAnimal;
-	}
-
-	public Classificacao getIdClassificacaoAnimal() {
-		return idClassificacaoAnimal;
-	}
-
-	public void setIdClassificacaoAnimal(Classificacao idClassificacaoAnimal) {
-		this.idClassificacaoAnimal = idClassificacaoAnimal;
-	}
+//	public Grupo getIdGrupoAnimal() {
+//		return idGrupoAnimal;
+//	}
+//
+//	public void setIdGrupoAnimal(Grupo idGrupoAnimal) {
+//		this.idGrupoAnimal = idGrupoAnimal;
+//	}
+//
+//	public Classificacao getIdClassificacaoAnimal() {
+//		return idClassificacaoAnimal;
+//	}
+//
+//	public void setIdClassificacaoAnimal(Classificacao idClassificacaoAnimal) {
+//		this.idClassificacaoAnimal = idClassificacaoAnimal;
+//	}
 
 	public Especie getIdEspecieAnimal() {
 		return idEspecieAnimal;
@@ -203,8 +203,7 @@ public class Animais {
 
 	@Override
 	public String toString() {
-		return "Animais [id=" + id + ", data=" + data + ", grupo=" + idGrupoAnimal + ", classificacao=" + idClassificacaoAnimal + "," +
-				"especie_animal=" + idEspecieAnimal + ", espécie" + especie + ", localização=" + localizacao + "," +
+		return "Animais [id=" + id + ", data=" + data + ", +specie_animal=" + idEspecieAnimal + ", espécie" + especie + ", localização=" + localizacao + "," +
 				"cadastrado por=" + cadastradopor + ", e-mail=" + email + ", estado=" + estado + "," + "comentario=" + comentario +
 				"foto1=" + foto1 + "foto2=" + foto2 + " ]";
 	}
