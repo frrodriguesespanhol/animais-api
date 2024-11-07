@@ -1,5 +1,6 @@
 package com.example.fabio.animaisapi.model;
 
+import com.example.fabio.animaisapi.model.exceptions.ValidationException;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -61,7 +62,12 @@ public class Animais {
 	public Animais(Long id, Date data, Especie idEspecieAnimal,
 				   String especie, String localizacao, String cadastradopor, String email, String estado, String comentario, String foto1,
 				   String foto2) {
-		super();
+
+		if(cadastradopor == null) throw new ValidationException("Cadastrado por é obrigatório");
+		if(especie == null) throw new ValidationException("Espécie é obrigatória");
+		if(localizacao == null) throw new ValidationException("Localização é obrigatória");
+
+		//super();
 		this.id = id;
 		this.data = data;
 //		this.idGrupoAnimal = idGrupoAnimal;

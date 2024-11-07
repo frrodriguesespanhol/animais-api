@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name = "usuarios")
@@ -110,4 +111,16 @@ public class Usuario {
 				+ "," + " tipo=" + tipo + " ]";
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Usuario usuario = (Usuario) o;
+		return Objects.equals(nome, usuario.nome) && Objects.equals(email, usuario.email) && Objects.equals(senha, usuario.senha) && Objects.equals(tipo, usuario.tipo);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(nome, email, senha, tipo);
+	}
 }

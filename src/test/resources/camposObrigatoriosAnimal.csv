@@ -1,0 +1,4 @@
+Id, CadastradoPor, Especie, Localizacao, Mensagem
+1, NULL, espécie, localização, Cadastrado por é obrigatório
+1, José, NULL, localização, Espécie é obrigatória
+1, José, espécie, NULL, Localização é obrigatória
