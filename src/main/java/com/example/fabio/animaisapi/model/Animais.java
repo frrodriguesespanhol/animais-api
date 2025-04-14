@@ -1,10 +1,14 @@
 package com.example.fabio.animaisapi.model;
 
-import com.example.fabio.animaisapi.model.exceptions.ValidationException;
+//import com.example.fabio.animaisapi.model.exceptions.ValidationException;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Builder;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -15,6 +19,7 @@ public class Animais {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ani_id")
 	private Long id;
+
 	@Column(name = "ani_data")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@JsonFormat(pattern = "yyyy-MM-dd")
@@ -63,9 +68,9 @@ public class Animais {
 				   String especie, String localizacao, String cadastradopor, String email, String estado, String comentario, String foto1,
 				   String foto2) {
 
-		if(cadastradopor == null) throw new ValidationException("Cadastrado por é obrigatório");
-		if(especie == null) throw new ValidationException("Espécie é obrigatória");
-		if(localizacao == null) throw new ValidationException("Localização é obrigatória");
+//		if(cadastradopor == null) throw new ValidationException("Cadastrado por é obrigatório");
+//		if(especie == null) throw new ValidationException("Espécie é obrigatória");
+//		if(localizacao == null) throw new ValidationException("Localização é obrigatória");
 
 		//super();
 		this.id = id;
